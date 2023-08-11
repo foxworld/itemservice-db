@@ -104,9 +104,6 @@
 						<configuration>
 							<outputDirectory>target/generated-sources/java</outputDirectory>
 							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
-							<!--<processor>com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa</processor>-->
-							<!--<processor>jakarta.annotation:jakarta.annotation-api</processor>-->
-							<!--<processor>jakarta.persistence:jakarta.persistence-api</processor>-->
 						</configuration>
 					</execution>
 				</executions>
