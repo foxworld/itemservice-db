@@ -10,7 +10,7 @@ import hello.itemservice.config.QuerydslConfig;
 import hello.itemservice.config.V2Config;
 import hello.itemservice.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
-
+//github 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
 @Slf4j
 //@Import(MemoryConfig.class)
 //@Import(JdbcTemplateV1Config.class)
