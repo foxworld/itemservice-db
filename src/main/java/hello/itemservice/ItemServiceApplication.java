@@ -1,17 +1,14 @@
 package hello.itemservice;
 
-import hello.itemservice.config.*;
-import hello.itemservice.repository.ItemRepository;
-import lombok.extern.slf4j.Slf4j;
-
-import javax.sql.DataSource;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import hello.itemservice.config.QuerydslConfig;
+import hello.itemservice.repository.ItemRepository;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 //@Import(MemoryConfig.class)
@@ -20,7 +17,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 //@Import(JdbcTemplateV3Config.class)
 //@Import(MyBatisConfig.class)
 //@Import(JpaConfig.class)
-@Import(SpringDataJpaConfig.class)
+//@Import(SpringDataJpaConfig.class)
+@Import(QuerydslConfig.class)
 //scanBasePackages는 자동등록하고 나머지는 수동등록을 하기위해 설정
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 public class ItemServiceApplication {
