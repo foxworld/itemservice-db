@@ -43,6 +43,7 @@ public class JpaItemRepositoryV3 implements ItemRepository {
 	@Override
 	public void update(Long itemId, ItemUpdateDto updateParam) {
 		Item findItem = em.find(Item.class, itemId);
+
 		findItem.setItemName(updateParam.getItemName());
 		findItem.setPrice(updateParam.getPrice());
 		findItem.setQuantity(updateParam.getQuantity());
@@ -57,6 +58,7 @@ public class JpaItemRepositoryV3 implements ItemRepository {
 	public List<Item> findAllOld(ItemSearchCond itemSearch) {
 		String itemName = itemSearch.getItemName();
 		Integer maxPrice = itemSearch.getMaxPrice();
+
 		QItem item = QItem.item;
 		BooleanBuilder builder = new BooleanBuilder();
 		if (StringUtils.hasText(itemName)) {
@@ -65,7 +67,9 @@ public class JpaItemRepositoryV3 implements ItemRepository {
 		if (maxPrice != null) {
 			builder.and(item.price.loe(maxPrice));
 		}
+
 		List<Item> result = query.select(item).from(item).where(builder).fetch();
+		
 		return result;
 	}
 
@@ -73,7 +77,9 @@ public class JpaItemRepositoryV3 implements ItemRepository {
 	public List<Item> findAll(ItemSearchCond cond) {
 		String itemName = cond.getItemName();
 		Integer maxPrice = cond.getMaxPrice();
+		
 		List<Item> result = query.select(item).from(item).where(likeItemName(itemName), maxPrice(maxPrice)).fetch();
+		
 		return result;
 	}
 
@@ -81,6 +87,7 @@ public class JpaItemRepositoryV3 implements ItemRepository {
 		if (StringUtils.hasText(itemName)) {
 			return item.itemName.like("%" + itemName + "%");
 		}
+		
 		return null;
 	}
 
@@ -88,6 +95,7 @@ public class JpaItemRepositoryV3 implements ItemRepository {
 		if (maxPrice != null) {
 			return item.price.loe(maxPrice);
 		}
+		
 		return null;
 	}
 }

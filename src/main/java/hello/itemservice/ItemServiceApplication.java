@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 
 import hello.itemservice.config.QuerydslConfig;
+import hello.itemservice.config.V2Config;
 import hello.itemservice.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,7 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 //@Import(MyBatisConfig.class)
 //@Import(JpaConfig.class)
 //@Import(SpringDataJpaConfig.class)
-@Import(QuerydslConfig.class)
+//@Import(QuerydslConfig.class)
+@Import(V2Config.class)
 //scanBasePackages는 자동등록하고 나머지는 수동등록을 하기위해 설정
 @SpringBootApplication(scanBasePackages = "hello.itemservice.web")
 public class ItemServiceApplication {
